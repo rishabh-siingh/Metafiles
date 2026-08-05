@@ -90,8 +90,9 @@ export function Footer() {
             <p className="font-display text-h5">Get new drops in your inbox</p>
             <p className="mt-1 text-small text-muted-foreground">One email a week. New products, no noise.</p>
           </div>
-          <form size="md" className="flex w-full max-w-sm flex-col gap-2 xs:flex-row">
+          <form className="flex w-full max-w-sm flex-col gap-2 xs:flex-row">
             <input
+              size="md"
               type="email"
               required
               placeholder="you@studio.com"
