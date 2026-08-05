@@ -44,7 +44,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-outline bg-surface">
+    <footer className="glow-surface border-t border-outline bg-surface">
       <div className="container-px mx-auto max-w-container py-16">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-6">
           <div className="col-span-2 flex flex-col gap-4 md:col-span-2">
