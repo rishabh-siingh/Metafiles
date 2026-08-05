@@ -92,7 +92,6 @@ export function Footer() {
           </div>
           <form className="flex w-full max-w-sm flex-col gap-2 xs:flex-row">
             <input
-              size="md"
               type="email"
               required
               placeholder="you@studio.com"
