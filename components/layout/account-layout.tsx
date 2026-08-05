@@ -9,7 +9,7 @@ const navItems = [
   { label: "Settings", href: "/settings", icon: Settings },
 ];
 
-export default function AccountLayout({ children }: { children: React.ReactNode }) {
+export function AccountLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="container-px mx-auto max-w-container py-10">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[220px_1fr]">
