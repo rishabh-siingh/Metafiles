@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   COLOR TOKENS
+   All colors expressed as HSL triplets (no leading hsl()) so Tailwind's
+   opacity modifiers (e.g. bg-primary/40) work everywhere.
+   Palette: Metafiles brand — deep navy surfaces, violet-purple accent
+   (matches brand kit: #0B1020 navy, #6C3BFF primary, gradient to pink/orange
+   reserved for the logo mark and glow-surface accents).
+   ========================================================================== */
+:root {
+  --background: 230 45% 7%;
+  --foreground: 40 20% 97%;
+
+  --surface: 228 38% 9%;
+  --surface-raised: 228 30% 12%;
+  --surface-overlay: 228 26% 15%;
+  --surface-sunken: 230 48% 5%;
+
+  --primary: 255 90% 64%;
+  --primary-hover: 255 90% 70%;
+  --primary-pressed: 255 82% 55%;
+  --primary-foreground: 0 0% 100%;
+  --primary-soft: 255 55% 20%;
+
+  --secondary: 228 20% 18%;
+  --secondary-foreground: 40 20% 97%;
+
+  --muted: 228 20% 14%;
+  --muted-foreground: 220 8% 62%;
+
+  --outline: 228 16% 18%;
+  --outline-strong: 228 16% 27%;
+
+  --success: 152 55% 48%;
+  --success-soft: 152 40% 14%;
+  --warning: 38 90% 62%;
+  --warning-soft: 38 60% 16%;
+  --error: 356 78% 62%;
+  --error-soft: 356 55% 16%;
+  --info: 205 85% 62%;
+  --info-soft: 205 55% 16%;
+
+  --disabled: 228 10% 24%;
+  --shadow-color: 230 50% 2%;
+}
+
+/* Light mode kept for completeness / user preference toggle */
+.light {
+  --background: 210 20% 97%;
+  --foreground: 228 30% 10%;
+
+  --surface: 0 0% 100%;
+  --surface-raised: 0 0% 100%;
+  --surface-overlay: 0 0% 100%;
+  --surface-sunken: 210 20% 95%;
+
+  --primary: 255 80% 58%;
+  --primary-hover: 255 80% 52%;
+  --primary-pressed: 255 82% 46%;
+  --primary-foreground: 0 0% 100%;
+  --primary-soft: 255 70% 95%;
+
+  --secondary: 220 15% 95%;
+  --secondary-foreground: 220 14% 10%;
+
+  --muted: 220 15% 95%;
+  --muted-foreground: 220 8% 42%;
+
+  --outline: 220 13% 88%;
+  --outline-strong: 220 13% 78%;
+
+  --success: 152 60% 32%;
+  --success-soft: 152 55% 92%;
+  --warning: 38 85% 45%;
+  --warning-soft: 38 85% 92%;
+  --error: 356 70% 48%;
+  --error-soft: 356 70% 94%;
+  --info: 205 80% 45%;
+  --info-soft: 205 80% 94%;
+
+  --disabled: 220 10% 85%;
+  --shadow-color: 220 30% 40%;
+}
+
+@layer base {
+  * {
+    @apply border-outline;
+  }
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+  html.light {
+    color-scheme: light;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  h1, h2, h3, h4, h5 {
+    @apply font-display;
+  }
+
+  /* Fluid scaling for the two largest heading tokens — prevents overflow
+     and cramped line-wrapping on narrow phones (320–375px) without
+     requiring every page to hand-manage responsive text size variants. */
+  .text-h1 {
+    font-size: clamp(1.875rem, 5vw + 1rem, 2.75rem);
+  }
+  .text-h2 {
+    font-size: clamp(1.5rem, 4vw + 0.75rem, 2.125rem);
+  }
+
+  /* Visible, accessible focus ring everywhere — never suppressed */
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary) / 0.6);
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .skeleton {
+    background-image: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--outline-strong)) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 1000px 100%;
+    @apply animate-shimmer;
+  }
+
+  .container-px {
+    @apply px-6 md:px-8;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Signature radial glow — the "premium card" background used across
+     the CTA banner, footer newsletter card, sidebar header, and any
+     other surface that wants the brand-accent spotlight treatment. */
+  .glow-surface {
+    position: relative;
+    overflow: hidden;
+  }
+  .glow-surface::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 60% 60% at 50% 0%, hsl(var(--primary) / 0.18), transparent);
+  }
+  .glow-surface-corner::before {
+    background: radial-gradient(ellipse 80% 60% at 100% 0%, hsl(var(--primary) / 0.22), transparent);
+  }
+  .glow-surface > * {
+    position: relative;
+  }
+}
