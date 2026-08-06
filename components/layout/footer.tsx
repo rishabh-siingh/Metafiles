@@ -88,7 +88,7 @@ export function Footer() {
         <div className="glow-surface mt-16 flex flex-col gap-4 rounded-lg border border-outline bg-surface-raised p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-display text-h5">Get new drops in your inbox</p>
-            <p className="mt-1 text-small text-muted-foreground">One email a week. New products, no noise.</p>
+            <p className="mt-1 text-small text-muted-foreground">One email a week. no noise.</p>
           </div>
           <form className="flex w-full max-w-sm flex-col gap-2 xs:flex-row">
             <input
