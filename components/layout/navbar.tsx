@@ -26,8 +26,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 overflow-hidden border-b border-outline bg-background/85 backdrop-blur-md">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_20%_0%,hsl(var(--primary)/0.16),transparent)]" />
+      <header className="sticky top-0 z-50 border-b border-outline bg-background/85 backdrop-blur-md">
       <div className="container-px mx-auto flex h-16 max-w-container items-center gap-4 sm:gap-6">
         <Link href="/" className="flex shrink-0 items-center gap-2 font-display text-h5 tracking-tight">
           <Logo size={32} />
