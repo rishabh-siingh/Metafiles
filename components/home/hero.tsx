@@ -13,7 +13,6 @@ const stackImages = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-outline">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_0%,hsl(var(--primary)/0.16),transparent)]" />
       <div className="container-px relative mx-auto grid max-w-container items-center gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
         <div className="flex flex-col items-start gap-6">
           <span className="inline-flex items-center gap-1.5 rounded-pill border border-outline-strong bg-surface-raised px-3 py-1.5 text-label text-muted-foreground">
