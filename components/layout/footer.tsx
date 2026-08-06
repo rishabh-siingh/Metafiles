@@ -97,7 +97,7 @@ export function Footer() {
               placeholder="you@studio.com"
               className="h-12 min-w-0 flex-1 rounded-sm border border-outline bg-surface-sunken px-3.5 text-body placeholder:text-muted-foreground focus-visible:border-primary"
             />
-            <Button type="submit" size="lg" className="w-full gap-1.5 xs:w-auto xs:shrink-0">
+            <Button type="submit" size="lg" className="h-12 w-full gap-1.5 xs:w-auto xs:shrink-0">
               <Send className="size-4" /> Subscribe
             </Button>
           </form>
