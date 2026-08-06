@@ -49,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className={`${bodyFont.variable} ${displayFont.variable} flex min-h-screen flex-col font-body`}>
+        <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[600px] bg-[radial-gradient(ellipse_60%_50%_at_20%_0%,hsl(var(--primary)/0.16),transparent)]" />
         <Providers>
           <Navbar />
           <main className="flex-1">{children}</main>
